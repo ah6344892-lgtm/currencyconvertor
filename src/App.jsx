@@ -16,7 +16,7 @@ function App() {
     if (fromInput == from && currencyInfo[to]) {
       setConvertedAmount(amount * currencyInfo[to])
     }
-  }, [formData])
+  }, [formData, toInput])
 
   const currencyInfo = useCurrencyInfo(from)
 
@@ -31,6 +31,7 @@ function App() {
 
   const convert = () => {
     const currencyFrom = fromInput.toLowerCase()
+    const currencyTo = toInput.toLowerCase()
     if (!options.includes(currencyFrom)) {
       alert(`Invalid currency from: ${fromInput}`)
       return
@@ -47,12 +48,9 @@ function App() {
       alert("From and To currency should be different")
       return
     }
-    const data = {
-      amount: amount,
-      from: currencyFrom,
-      to: toInput.toLowerCase(),
-    }
+    const data = [from, to, amount]
     setFrom(currencyFrom)
+    setTo(currencyTo)
     setFormData(data)
   }
 
