@@ -38,23 +38,68 @@ function InputBox({
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
                 <p className="text-black/40 mb-2 w-full">Currency Type</p>
-                <select
+                <div>
+                    <input
+                        list="currencyOptions"
+                        name='searchCurrency'
+                        placeholder="Search Currency"
+                        className="rounded-lg px-1 py-1 bg-gray-100 outline-none"
+                        value={selectCurrency && selectCurrency.toUpperCase()}
+                        onChange={(e) => {
+                            return onCurrencyChange && onCurrencyChange(e.target.value)
+                        }}
+                    />
+                    <datalist id="currencyOptions">
+                        {currencyOptions.map((curr) =>
+                        (<option key={curr} value={curr}>
+                            {curr}
+                        </option>)
+                        )}
+                    </datalist>
+                    {/* <input
+                        name='searchCurrency'
+                        placeholder="Search Currency"
+                        className="rounded-lg px-1 py-1 bg-gray-100 outline-none"
+                        value={selectCurrency}
+                        onChange={(e) => {
+
+                            return () => {
+                                onCurrencyChange && onCurrencyChange(e.target.value),
+                                    < select
+                                        name='currencySelectOption'
+                                        className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
+                                        value={selectCurrency}
+                                        onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+                                        disabled={currencyDisable}
+                                    >
+                                        {currencyOptions.map((curr) =>
+                                        (<option key={curr} value={curr}>
+                                            {curr}
+                                        </option>)
+                                        )}
+
+                                    </select>
+                            }
+
+                        }}
+                    /> */}
+                </div>
+                {/* <select
                     name='currencySelectOption'
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                     value={selectCurrency}
                     onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                     disabled={currencyDisable}
                 >
-
                     {currencyOptions.map((curr) =>
                     (<option key={curr} value={curr}>
                         {curr}
                     </option>)
                     )}
 
-                </select>
+                </select> */}
             </div>
-        </div>
+        </div >
     );
 }
 
