@@ -15,6 +15,7 @@ function InputBox({
 }) {
 
     const amountId = useId()
+    const infinity = Number.POSITIVE_INFINITY
 
 
     return (
@@ -24,7 +25,7 @@ function InputBox({
                     {label}
                 </label>
                 <input
-                    max={+infinity}
+                    max={infinity}
                     min={0}
                     id={amountId}
                     className="outline-none w-full bg-transparent py-1.5"
