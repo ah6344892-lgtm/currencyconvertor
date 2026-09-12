@@ -24,6 +24,8 @@ function InputBox({
                     {label}
                 </label>
                 <input
+                    max={+infinity}
+                    min={0}
                     id={amountId}
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
