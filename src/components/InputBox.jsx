@@ -38,12 +38,12 @@ function InputBox({
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
                 <p className="text-black/40 mb-2 w-full">Currency Type</p>
-                <div>
+                <div className="w-full">
                     <input
                         list="currencyOptions"
                         name='searchCurrency'
                         placeholder="Search Currency"
-                        className="rounded-lg px-1 py-1 bg-gray-100 outline-none"
+                        className="rounded-lg px-1 py-1 bg-gray-100 outline-none w-full"
                         value={selectCurrency && selectCurrency.toUpperCase()}
                         onChange={(e) => {
                             return onCurrencyChange && onCurrencyChange(e.target.value)
